@@ -1,8 +1,9 @@
-import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import { useCarContext } from "./context/CarContext";
@@ -27,14 +28,13 @@ function App() {
               {cars &&
                 cars.map((car: string, index: number) => (
                   <li key={index}>
-                    {car}
-                    <Link to={"/"}></Link>
+                    <Link to={"/"}>{car}</Link>
                   </li>
                 ))}
             </Nav>
             <Nav>
               <Link id="Nav.Link" to={"/"}>
-                Startsida
+                Startsidan
               </Link>
               <Link id="Nav.Link" to={"/about"}>
                 About
@@ -44,8 +44,8 @@ function App() {
         </Container>
       </Navbar>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/About" element={<About />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
